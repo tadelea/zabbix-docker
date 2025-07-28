@@ -4,7 +4,7 @@ services:
    file: compose_zabbix_components.yaml
    service: server-mysql-db-init
   image: "${ZABBIX_SERVER_MYSQL_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
-  user= "0:0"
+  user: "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   depends_on:
