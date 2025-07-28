@@ -4,6 +4,7 @@ services:
    file: compose_zabbix_components.yaml
    service: server-mysql-db-init
   image: "${ZABBIX_SERVER_MYSQL_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user= "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   depends_on:
@@ -17,6 +18,7 @@ services:
    file: compose_zabbix_components.yaml
    service: proxy-mysql-db-init
   image: "${ZABBIX_PROXY_MYSQL_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   depends_on:
@@ -30,6 +32,7 @@ services:
    file: compose_zabbix_components.yaml
    service: server-mysql
   image: "${ZABBIX_SERVER_MYSQL_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   depends_on:
@@ -43,6 +46,7 @@ services:
    file: compose_zabbix_components.yaml
    service: proxy-sqlite3
   image: "${ZABBIX_PROXY_SQLITE3_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   labels:
@@ -53,6 +57,7 @@ services:
    file: compose_zabbix_components.yaml
    service: proxy-mysql
   image: "${ZABBIX_PROXY_MYSQL_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   depends_on:
@@ -66,6 +71,7 @@ services:
    file: compose_zabbix_components.yaml
    service: web-apache-mysql
   image: "${ZABBIX_WEB_APACHE_MYSQL_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   depends_on:
@@ -79,6 +85,7 @@ services:
    file: compose_zabbix_components.yaml
    service: web-nginx-mysql
   image: "${ZABBIX_WEB_NGINX_MYSQL_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   depends_on:
@@ -92,6 +99,7 @@ services:
    file: compose_zabbix_components.yaml
    service: agent
   image: "${ZABBIX_AGENT_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   volumes:
    - /etc/timezone:/etc/timezone:ro
   labels:
@@ -102,6 +110,7 @@ services:
    file: compose_zabbix_components.yaml
    service: java-gateway
   image: "${ZABBIX_JAVA_GATEWAY_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   labels:
    com.zabbix.os: "${ALPINE_OS_TAG}"
 
@@ -110,6 +119,7 @@ services:
    file: compose_zabbix_components.yaml
    service: snmptraps
   image: "${ZABBIX_SNMPTRAPS_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   labels:
    com.zabbix.os: "${ALPINE_OS_TAG}"
 
@@ -118,6 +128,7 @@ services:
    file: compose_zabbix_components.yaml
    service: web-service
   image: "${ZABBIX_WEB_SERVICE_IMAGE}:${ZABBIX_ALPINE_IMAGE_TAG}${ZABBIX_IMAGE_TAG_POSTFIX}"
+  user: "0:0"
   labels:
    com.zabbix.os: "${ALPINE_OS_TAG}"
 
